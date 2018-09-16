@@ -29,6 +29,10 @@ load('static/fonts/Lato2OFL/Lato-Regular.ttf', function(err, font) {
         global.font = font
         global.glyphs = font.glyphs.glyphs
         global.commandToD = commandToD
+
+        global.A = font.glyphs.glyphs[3]
+        global.a = font.glyphs.glyphs[45]
+
         if (global.document) {
           const context2d = global.document.querySelector('canvas')
           .getContext('2d')
@@ -36,6 +40,7 @@ load('static/fonts/Lato2OFL/Lato-Regular.ttf', function(err, font) {
 
           const l = 'a'.repeat(3500).split('')
           console.log(l)
+
           l.forEach((_, i) => {
             global.glyphs[i].draw(context2d, 40 + 40 * (i % 20), 40 + (Math.floor(i / 20) * 40), 30)
           })
